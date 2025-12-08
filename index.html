@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- Primary Meta Tags -->
+    <title>Toimenpidettä edeltävän kuntoutumisen opas - Pirkanmaan hyvinvointialue</title>
+    <meta name="title" content="Toimenpidettä edeltävän kuntoutumisen opas - Pirkanmaan hyvinvointialue" />
+    <meta name="description" content="Henkilökohtainen kuntoutumisopas toimenpiteeseen valmistautumiseen. Sisältää ohjeet liikkumiseen, ravitsemukseen, henkiseen jaksamiseen ja terveyden hallintaan." />
+    <meta name="keywords" content="kuntoutus, toimenpide, leikkaus, terveys, hyvinvointi, Pirkanmaa, prehabilitaatio" />
+    <meta name="author" content="Pirkanmaan hyvinvointialue" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Language and Region -->
+    <meta name="language" content="Finnish" />
+    <meta name="geo.region" content="FI-11" />
+    <meta name="geo.placename" content="Pirkanmaa" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="PIRHA Kuntoutumisopas - Pirkanmaan hyvinvointialue" />
+    <meta property="og:description" content="Henkilökohtainen opas toimenpiteeseen valmistautumiseen. Liikunta, ravitsemus, henkinen jaksaminen ja terveydenhoito." />
+    <meta property="og:locale" content="fi_FI" />
+    <meta property="og:site_name" content="Pirkanmaan hyvinvointialue" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="PIRHA Kuntoutumisopas" />
+    <meta property="twitter:description" content="Henkilökohtainen opas toimenpiteeseen valmistautumiseen." />
+    
+    <!-- App-specific Meta Tags -->
+    <meta name="application-name" content="PIRHA Kuntoutumisopas" />
+    <meta name="theme-color" content="#2563eb" />
+    <meta name="msapplication-TileColor" content="#2563eb" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="PIRHA Opas" />
+    
+    <!-- Security -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    
+    <!-- Healthcare and Accessibility -->
+    <meta name="audience" content="patients, healthcare professionals" />
+    <meta name="subject" content="Prehabilitation, Healthcare, Patient Education" />
+    <meta name="accessibility" content="WCAG 2.1 AA" />
+    
+    <!-- Preconnect to external resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <!-- Structured Data for Healthcare -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "PIRHA Kuntoutumisopas",
+      "description": "Henkilökohtainen kuntoutumisopas toimenpiteeseen valmistautumiseen",
+      "applicationCategory": "HealthApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "EUR"
+      },
+      "provider": {
+        "@type": "Organization",
+        "name": "Pirkanmaan hyvinvointialue",
+        "url": "https://www.pirkanmaanhyvinvointialue.fi"
+      },
+      "audience": {
+        "@type": "MedicalAudience",
+        "audienceType": "Patient"
+      },
+      "about": [
+        {
+          "@type": "MedicalCondition",
+          "name": "Preoperative Care"
+        },
+        {
+          "@type": "MedicalProcedure",
+          "name": "Prehabilitation"
+        }
+      ]
+    }
+    </script>
+    
+    <!-- Medical Disclaimer -->
+    <meta name="medical-disclaimer" content="Tämä sovellus tarjoaa yleisiä ohjeita esikuntoutumiseen, eikä se saa korvata lääkärin antamia ohjeita tai neuvontaa. Ole aina ensisijaisesti yhteydessä terveydenhullon ammattilaisiin päätösten teon nimissä." />
+    
+    <style>
+      /* Critical loading styles */
+      .loading-screen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #eff6ff 0%, #e0e7ff 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      }
+      
+      .loading-spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid #e5e7eb;
+        border-top: 4px solid #2563eb;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      .loading-text {
+        margin-top: 20px;
+        color: #374151;
+        font-family: system-ui, -apple-system, sans-serif;
+        font-size: 14px;
+      }
+      
+      /* Hide loading when app loads */
+      .app-loaded .loading-screen {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div id="loading" class="loading-screen">
+      <div style="text-align: center;">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Ladataan PIRHA kuntoutumisopasta...</div>
+      </div>
+    </div>
+    
+    <!-- Main App Container -->
+    <div id="root"></div>
+    
+    <!-- Error Fallback (if JavaScript fails) -->
+    <noscript>
+      <div style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #f9fafb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: system-ui, sans-serif;
+        text-align: center;
+        padding: 20px;
+        box-sizing: border-box;
+      ">
+        <div style="max-width: 400px;">
+          <h1 style="color: #1f2937; margin-bottom: 20px;">JavaScript Required</h1>
+          <p style="color: #6b7280; margin-bottom: 20px;">
+            PIRHA kuntoutumisopas vaatii JavaScript-tuen toimiakseen.
+            Ole hyvä ja ota JavaScript käyttöön selaimessasi.
+          </p>
+          <p style="color: #6b7280; font-size: 14px;">
+            <strong>Pirkanmaan hyvinvointialue</strong><br>
+          </p>
+        </div>
+      </div>
+    </noscript>
+    
+    <!-- App Initialization Script -->
+    <script type="module">
+      // Hide loading screen when app loads
+      window.addEventListener('load', () => {
+        setTimeout(() => {
+          document.body.classList.add('app-loaded');
+          const loading = document.getElementById('loading');
+          if (loading) {
+            loading.style.opacity = '0';
+            loading.style.transition = 'opacity 0.3s ease';
+            setTimeout(() => loading.remove(), 300);
+          }
+        }, 100);
+      });
+      
+      // Global error handling
+      window.addEventListener('error', (event) => {
+        console.error('Global error:', event.error);
+      });
+      
+      window.addEventListener('unhandledrejection', (event) => {
+        console.error('Unhandled promise rejection:', event.reason);
+      });
+    </script>
+    
+    <!-- Main Application Script -->
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
