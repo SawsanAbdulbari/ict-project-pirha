@@ -123,7 +123,7 @@ const ResultsPage = () => {
           {/* User Profile Summary */}
           <div className="mt-4 p-4 bg-blue-50 rounded-lg">
             <h2 className="font-semibold text-blue-900 mb-2">Profiilisi yhteenveto:</h2>
-            <div className="grid md:grid-cols-2 gap-3 text-sm">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm">
               <div>
                 <span className="font-medium">Ikäryhmä:</span> {getAgeGroupDisplay(userProfile.ageGroup)}
               </div>
@@ -209,7 +209,7 @@ const ResultsPage = () => {
         {/* This section provides direct navigation links to the content pages determined to be most important by the getRelevantSections function, highlighting high-priority ones visually. */}
         <div className="bg-white rounded-lg shadow-md p-6 mb-6">
           <h2 className="text-xl font-semibold mb-4">Sinulle tärkeimmät sisällöt</h2>
-          <div className="space-y-3">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {relevantSections.map((section) => {
               const Icon = section.icon;
               return (
