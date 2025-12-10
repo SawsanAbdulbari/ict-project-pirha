@@ -449,7 +449,7 @@ function App() {
           </CardHeader>
         </Card>
 
-        <ul className="grid grid-cols-2 md:grid-cols-2 gap-6 mb-8">
+        <ul className={`grid ${isDesktop ? 'grid-cols-2' : 'grid-cols-1'} gap-6 mb-8`}>
           {selectedSections.map((sectionKey) => {
             const section = contentSections[sectionKey];
             const IconComponent = section.icon;
@@ -532,7 +532,7 @@ function App() {
           </CardHeader>
         </Card>
 
-        <ul className="grid grid-cols-2 gap-6 mb-8">
+        <ul className={`grid ${isDesktop ? 'grid-cols-2' : 'grid-cols-1'} gap-6 mb-8`}>
           {Object.entries(contentSections).map(([sectionKey, section]) => {
             const IconComponent = section.icon;
             const isVisited = visitedSections.includes(sectionKey);
